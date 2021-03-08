@@ -25,10 +25,11 @@ pipeline {
       }
     }
 
-    stage('Environment Setup') {
+    stage('Show repo dirs') {
       steps {
         sh('ls superloop')
         sh('ls superloop_cfgs')
+        echo("${SUPER_SECRET}")
       }
     }
   }
