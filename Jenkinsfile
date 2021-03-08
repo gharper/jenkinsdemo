@@ -9,7 +9,7 @@ pipeline {
       steps {
         // This checks out the repo with the current jenkisnfile
         checkout scm
-
+        sh('ssh -oStrictHostKeyChecking=no jenkins@gerrit.corp.skytap.com:29418 || true')
         // This checks out an arbitrary git URL
         dir('superloop') {
             git branch: 'master',
