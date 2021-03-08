@@ -13,13 +13,13 @@ pipeline {
         // This checks out an arbitrary git URL
         dir('superloop') {
             git branch: 'master',
-                credentialsId: '26c9d653-614d-48fd-abb2-8f468837532e',
+                credentialsId: '7a2a7ec4-f126-4f50-916d-db89c7f55089',
                 url: 'ssh://jenkins@gerrit.corp.skytap.com:29418/infra/networking/superloop'
         }
         dir('superloop_cfgs') {
             // URL with a variable
             git branch: 'master',
-                credentialsId: '26c9d653-614d-48fd-abb2-8f468837532e',
+                credentialsId: '7a2a7ec4-f126-4f50-916d-db89c7f55089',
                 url: 'ssh://jenkins@gerrit.corp.skytap.com:29418/infra/networking/superloop_cfgs_${SUPERLOOP_ENV}'
         }
       }
