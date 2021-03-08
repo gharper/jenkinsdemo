@@ -12,11 +12,15 @@ pipeline {
 
         // This checks out an arbitrary git URL
         dir('superloop') {
-            git url: 'https://gerrit.corp.skytap.com/infra/networking/superloop'
+            git branch: 'master',
+                credentialsId: '87d75c88-5a67-4567-8074-0889dbf48934',
+                url: 'https://gerrit.corp.skytap.com/infra/networking/superloop'
         }
         dir('superloop_cfgs') {
             // URL with a variable
-            git url: 'https://gerrit.corp.skytap.com/infra/networking/superloop_cfgs_${SUPERLOOP_ENV}'
+            git branch: 'master',
+                credentialsId: '87d75c88-5a67-4567-8074-0889dbf48934',
+                url: 'https://gerrit.corp.skytap.com/infra/networking/superloop_cfgs_${SUPERLOOP_ENV}'
         }
       }
     }
