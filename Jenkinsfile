@@ -3,6 +3,7 @@ pipeline {
   environment {
     // Variable for an example.
     SUPERLOOP_ENV = 'qa'
+    RANCID_CREDENTIAL_ID = '638f2a7e-41d3-443a-95a5-e833b8d2d0a4'
   }
   stages {
     stage('Checkout Git'){
@@ -30,6 +31,9 @@ pipeline {
         sh('ls superloop')
         sh('ls superloop_cfgs')
         echo("${SUPER_SECRET}")
+        withCredentials([usernameColonPassword(credentialsId: ${RANCID_CREDENTIAL_ID}, variable: 'NETCONFIG_PASSWORD')]) {
+            sh('echo "do soemthign with ${PASSWORD}"')
+          }
       }
     }
   }
